@@ -1,7 +1,13 @@
 const { ApolloServer, gql } = require("apollo-server");
 const mongoose = require("mongoose");
+const logger = require("morgan");
+const cors = require("cors");
 
 const { MONGODB } = require("./config.js");
+
+app.use(cors());
+app.use(logger("dev"));
+app.use(express.static(__dirname + "/app/build/"));
 
 // A schema is a collection of type definitions (hence "typeDefs")
 // that together define the "shape" of queries that are executed against
