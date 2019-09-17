@@ -17,11 +17,13 @@
     "bcryptjs": "^2.4.3",
     "concurrently": "^4.1.2",
     "cors": "^2.8.5",
+    "eslint-utils": "^1.4.2",
     "express-jwt": "^5.3.1",
     "graphql": "^14.3.1",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.5.11",
     "morgan": "^1.9.1",
+    "react-router": "^5.0.1",
     "react-router-dom": "^5.0.1"
   },
   "devDependencies": {

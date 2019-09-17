@@ -5,9 +5,9 @@ const cors = require("cors");
 
 const { MONGODB } = require("./config.js");
 
-app.use(cors());
-app.use(logger("dev"));
-app.use(express.static(__dirname + "/app/build/"));
+// app.use(cors());
+// app.use(logger("dev"));
+// app.use(express.static(__dirname + "/app/build/"));
 
 // A schema is a collection of type definitions (hence "typeDefs")
 // that together define the "shape" of queries that are executed against
@@ -45,13 +45,15 @@ const resolvers = {
 // The ApolloServer constructor requires two parameters: your schema
 // definition and your set of resolvers.
 const server = new ApolloServer({ typeDefs, resolvers });
+server.listen({ port: 5000 });
 
-mongoose
-  .connect(MONGODB, { useNewUrlParser: true, useUnifiedTopology: true })
-  .then(() => {
-    console.log("MongoDB Connected");
-    return server.listen({ port: 5000 });
-  })
-  .then(({ url }) => {
-    console.log(`🚀  Server ready at ${url}`);
-  });
+// mongoose
+//   .connect(MONGODB, { useNewUrlParser: true, useUnifiedTopology: true })
+//   .then(() => {
+//     console.log("MongoDB Connected");
+//     return server.listen({ port: 5000 });
+//   })
+//   .then(({ url }) => {
+//     console.log(`🚀  Server ready at ${url}`);
+//   })
+//   .catch(error => console.error(error));
